@@ -514,7 +514,7 @@
         $(".next-shuttle-end-time").text(moment(next_shuttles[0]["end"], "hhmm").format("hh:mm A"));
         $(".future-shuttles").text("");
         _.each(next_shuttles, function(value, key, list) {if (key > 0 && key < 6) {
-          $(".future-shuttles").append("<div class='ui label'>" + moment(value["start"], "hhmm").format("hh:mm A") + "</div>");
+          $(".future-shuttles").append("<div class='ui label' style='margin-top: 5px;'>" + moment(value["start"], "hhmm").format("hh:mm A") + "</div>");
         }})
       }
       refreshData();

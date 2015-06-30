@@ -495,6 +495,9 @@
           $(".start-location").text("DECC");
           $(".end-location").text("Holiday Center");
           next_shuttles = _.filter(toDowntown, function(shuttle) { return moment(shuttle["start"], "hhmm") > moment()});
+          if (_.size(next_shuttles) == 0) {
+            next_shuttles = toDowntown.slice(0, 6)
+          }
           console.log("Going Downtown")
         }
         else {
@@ -502,6 +505,9 @@
           $(".end-location").text("DECC");
           next_shuttles = _.filter(fromDowntown, function(shuttle) { return moment(shuttle["start"], "hhmm") > moment()});
           console.log("Going to the DECC")
+          if (_.size(next_shuttles) == 0) {
+            next_shuttles = fromDowntown.slice(0, 6)
+          }
         }
 
         $(".next-shuttle-start-time").text(moment(next_shuttles[0]["start"], "hhmm").format("hh:mm A"));
